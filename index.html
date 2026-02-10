@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paper&Coffee - Gestão Criativa</title>
+    <!-- Tailwind CSS para estilização rápida e responsiva -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Fontes Sans-Serif Arredondadas: Quicksand para corpo e Nunito para títulos -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        /* Tema Cozy Coffee (Padrão) - Cores que remetem a uma cafeteria aconchegante */
+        --primary: #764134; /* Café Avelã */
+        --secondary: #E6CCB2; /* Latte Claro */
+        --bg-app: #FDF8F5; /* Creme Suave */
+        --bg-sidebar: #EDE0D4; /* Bege Quente */
+        --bg-card: #FFFFFF;
+        --accent: #B08968; /* Caramelo */
+        --accent-light: #F7EBE1;
+        --radius-card: 2rem;
+        --shadow-card: 0 10px 30px -10px rgba(118, 65, 52, 0.1);
+      }
+
+      [data-theme='pastel'] {
+        /* Tema Pastel Criativo - Cores suaves para um ambiente de papelaria */
+        --primary: #5D4037;
+        --secondary: #FFB6C1; /* Rosa Pastel */
+        --bg-app: #FFFBF0; 
+        --bg-sidebar: #FCE4EC; /* Rosa muito claro */
+        --bg-card: #FFFFFF;
+        --accent: #F8BBD0;
+        --accent-light: #FFEBEE;
+        --radius-card: 2.5rem;
+        --shadow-card: 0 15px 35px -12px rgba(255, 182, 193, 0.3);
+      }
+
+      body {
+        font-family: 'Quicksand', sans-serif;
+        background-color: var(--bg-app);
+        color: var(--primary);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        -webkit-font-smoothing: antialiased;
+      }
+      
+      h1, h2, h3, h4, .font-title {
+        font-family: 'Nunito', sans-serif !important;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+      }
+
+      .bg-white, .bg-theme-card {
+        border-radius: var(--radius-card) !important;
+        box-shadow: var(--shadow-card) !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+      }
+
+      /* Scrollbar customizada estilo cafeteria */
+      .coffee-scroll::-webkit-scrollbar {
+        width: 6px;
+      }
+      .coffee-scroll::-webkit-scrollbar-thumb {
+        background: var(--secondary);
+        border-radius: 20px;
+      }
+
+      .bg-theme-primary { background-color: var(--primary); }
+      .bg-theme-secondary { background-color: var(--secondary); }
+      .bg-theme-app { background-color: var(--bg-app); }
+      .bg-theme-sidebar { background-color: var(--bg-sidebar); }
+      .bg-theme-card { background-color: var(--bg-card); }
+      .text-theme-primary { color: var(--primary); }
+      .text-theme-secondary { color: var(--secondary); }
+      .border-theme-secondary { border-color: var(--secondary); }
+
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .animate-fadeIn {
+        animation: fadeIn 0.4s ease-out forwards;
+      }
+
+      /* Estilos para Impressão de Orçamentos e Vendas */
+      @media print {
+        aside, header, nav, button, .no-print {
+          display: none !important;
+        }
+        body {
+          background-color: white !important;
+          color: black !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+        #root {
+          width: 100% !important;
+        }
+        main {
+          margin: 0 !important;
+          padding: 0 !important;
+          width: 100% !important;
+          overflow: visible !important;
+        }
+        .print-area {
+          display: block !important;
+          width: 100% !important;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+        .print-container {
+          padding: 2cm !important;
+        }
+      }
+    </style>
+    <!-- Import Map para resolução de dependências no navegador/Vite -->
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
+    "firebase/": "https://esm.sh/firebase@^12.9.0/",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0"
+  }
+}
+</script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- Ponto de entrada da aplicação ES6 para o Vite -->
+    <script type="module" src="./index.tsx"></script>
+  </body>
+</html>
